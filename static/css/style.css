@@ -1,0 +1,57 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+/* Navbar Styles */
+.navbar {
+    padding: .8rem;
+}
+
+.navbar-brand img {
+    height: 3rem;
+ }
+
+.navbar-nav li {
+    padding-right: 20px;
+}
+
+.nav-link {
+    font-size: 1.1em;
+}
+
+/* Carousel Styles */
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.carousel-caption h1 {
+    font-size: 500%;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 1px #000;
+    position: relative;
+    top: -70%;
+    left: 50%;
+}
+
+.carousel-caption button {
+    position: absolute;
+    top: 110%;
+    right: 45%;
+}
+
+.btn-primary {
+    background-color: #337ab7;
+}
+
+.btn-primary:hover {
+    background-color: #563d7c;
+    border: 1px solid #563d7c;
+}

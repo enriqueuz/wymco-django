@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head_content %}
+    <title>wymco | consulting</title>
+{% endblock%}
+
+
+{% block content%}
+    <!-- Carousel -->
+    <div class="carousel slide" id="slides" data-ride="carousel">
+        <ul class="carousel-indicators">
+            <li data-target="#slides" data-slide-to="0" class="active"></li>
+            <li data-target="#slides" data-slide-to="1"></li>
+            <li data-target="#slides" data-slide-to="2"></li>
+        </ul>
+
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'img/carousel/carousel_1.png' %}" alt="wymco">
+                <div class="carousel-caption">
+                    <h1 class="display-2">Wymco</h1>
+                    <button type="button"  class="btn btn-primary btn-lg">CHECK OUR BLOG</button>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'img/carousel/carousel_1.png' %}" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'img/carousel/carousel_1.png' %}" alt="">
+            </div>
+        </div>
+    </div>
+
+    <!-- Jumbotron -->
+    <div class="container-fluid">
+        <div class="row jumbotron">
+                <p class="lead">Wymco Consulting offers bookkeeping and IT consulting to builders in Canada and USA.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container-fluid padding">
+            <div class="row text-center">
+                <div class="col-md-6">
+                    <img src="{% static 'img/logo.png' %}" alt="wymco">
+                    <hr class="light">
+                    <p>Contact us today for a FREE consultation. </p>
+                    
+                </div>
+                <div class="col-md-6">
+                    <h3>Contact us</h3>
+                    <hr class="light">
+                    <p>info@wymco.co</p>
+                    <p>Toronto</p>
+                    <p>647-686-2594</p>
+                    <p>New York</p>
+                </div>
+                <div class="col-12">
+                    <hr class="light">
+                    <h5>&copy; 2020, Wymco - Canada. All Rights Reserved</h5>
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endblock %}
