@@ -15,17 +15,17 @@
     <!-- Navigataion -->
     <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="{% static 'img/logo.png' %}" alt=""></a>
+            <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'img/logo.png' %}" alt=""></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="{% url 'index' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
+                        <a class="nav-link" href="{% url 'services' %}">Services</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">About Us</a>
@@ -40,6 +40,32 @@
 
 
     {% block content %}{% endblock %}
+
+    <!-- Footer -->
+    <footer>
+        <div class="container-fluid padding">
+            <div class="row text-center">
+                <div class="col-md-6">
+                    <img src="{% static 'img/logo.png' %}" alt="wymco">
+                    <hr class="light">
+                    <p>Contact us today for a FREE consultation. </p>
+                    
+                </div>
+                <div class="col-md-6">
+                    <h3>Contact us</h3>
+                    <hr class="light">
+                    <p>info@wymco.co</p>
+                    <p>Toronto</p>
+                    <p>647-686-2594</p>
+                    <p>New York</p>
+                </div>
+                <div class="col-12">
+                    <hr class="light">
+                    <h5>&copy; 2020, Wymco - Canada. All Rights Reserved</h5>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

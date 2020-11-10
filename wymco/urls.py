@@ -19,5 +19,6 @@ from . import views as general_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', general_views.IndexView.as_view(), name='index')
+    path('', general_views.IndexView.as_view(), name='index'),
+    path('services', general_views.ServicesView.as_view(), name='services'),
 ]
