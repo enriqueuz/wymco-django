@@ -8,3 +8,6 @@ class IndexView(TemplateView):
 
 class ServicesView(TemplateView):
     template_name = 'services.html'
+
+class AboutUsView(TemplateView):
+    template_name = 'about_us.html'

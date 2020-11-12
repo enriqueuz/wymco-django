@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', general_views.IndexView.as_view(), name='index'),
     path('services', general_views.ServicesView.as_view(), name='services'),
+    path('about_us', general_views.AboutUsView.as_view(), name='about-us'),
 ]
