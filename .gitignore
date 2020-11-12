@@ -1,4 +1,4 @@
 db.sqlite3
 __pycache__/
 media/
-wymco.db
+wymco.sqlite3
