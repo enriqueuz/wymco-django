@@ -1,7 +1,16 @@
 ''' Blog views '''
 
+# Django
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.views.generic import ListView, DetailView
 
-def blog(request):
-    return HttpResponse("This will the Wymco's blog")
+# Models
+from blog.models import BlogPost
+
+class PostList(ListView):
+    ''' Return all pulblished posts. '''
+    queryset = BlogPost.objects.filter(status=1).order_by('-created_on')
+
+class PostDetail(DetailView):
+    ''' Return post detail. '''
+    model = BlogPost
