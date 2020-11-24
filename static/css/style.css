@@ -122,3 +122,13 @@ html, body {
 .icon {
     font-size: 2rem;
 }
+
+/* Blog Post */
+
+.card {
+    box-shadow: 5px 5px 16px #5454c2;
+}
+
+.sidebar {
+    box-shadow: 3px 3px 10px #5454c2;
+}

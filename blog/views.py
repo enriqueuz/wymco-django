@@ -14,3 +14,9 @@ class PostList(ListView):
 class PostDetail(DetailView):
     ''' Return post detail. '''
     model = BlogPost
+    
+    def get_context_data(self, **kwargs):
+        # Return latest post for sidebar
+        context = super().get_context_data(**kwargs)
+        context['blogpost_list'] = BlogPost.objects.filter(status=1).order_by('-created_on')
+        return context

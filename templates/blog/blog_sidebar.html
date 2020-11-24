@@ -1,0 +1,16 @@
+{% block sidebar %}
+    <div class="col-md-4 float-right ">
+        <div class="sidebar my-4">
+            <h5 class="card-header">Recent posts</h5>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    {% for post in blogpost_list %}
+                        <li class="list-group-item">
+                            <a href="#" class="list-group-item-action">{{post.title}}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock sidebar %}
