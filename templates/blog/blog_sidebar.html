@@ -6,7 +6,7 @@
                 <ul class="list-group list-group-flush">
                     {% for post in blogpost_list %}
                         <li class="list-group-item">
-                            <a href="#" class="list-group-item-action">{{post.title}}</a>
+                            <a href="{% url 'post-detail' post.slug %}" class="list-group-item-action">{{ post.title }}</a>
                         </li>
                     {% endfor %}
                 </ul>

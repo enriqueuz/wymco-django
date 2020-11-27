@@ -8,13 +8,17 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-8 card mb-4  mt-3">
+    <div class="card col-md-8 mb-4  mt-3">
       <div class="card-body">
         <h1>{% block title %} {{ object.title }} {% endblock title %}</h1>
         <p class="text-muted">{{ object.created_on }}</p>
+        {% if object.image %}
+            <img src="{{ object.image.url }}" alt="{{ object.slug }}" class="card-img padding">
+        {% endif %}
         <p class="card-text text-justify">{{ object.content | safe | linebreaks }}</p>
       </div>
     </div>
+    <!-- Sidebar -->
     {% block sidebar %} {% include 'blog/blog_sidebar.html' %} {% endblock sidebar %}
   </div>
 </div>

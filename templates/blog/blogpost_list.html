@@ -30,11 +30,15 @@
                         <h2 class="card-title">{{ post.title }}</h2>
                         <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on}} </p>
                         <p class="card-text">{{post.content|slice:":200" }}</p>
+                        {% if post.image %}
+                            <img src="{{ post.image.url }}" alt="{{ post.slug }}" class="card-img padding">
+                        {% endif %}
                         <a href="{% url 'post-detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
                     </div>
                 </div>
                 {% endfor %}
             </div>
+            <!-- Sidebar -->
             {% block sidebar %}{% include 'blog/blog_sidebar.html' %}{% endblock sidebar%}                
         </div>
     </div>
