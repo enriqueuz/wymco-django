@@ -20,7 +20,7 @@
                 <img src="{% static 'img/carousel/carousel_1.png' %}" alt="wymco">
                 <div class="carousel-caption">
                     <h1 class="display-2">Wymco</h1>
-                    <button type="button"  class="btn btn-primary btn-lg">CHECK OUR BLOG</button>
+                    <a href="{% url 'blog-home' %}" class="btn btn-primary btn-lg">CHECK OUR BLOG</a>
                 </div>
             </div>
             <div class="carousel-item">
@@ -32,10 +32,24 @@
         </div>
     </div>
 
+    <div class="row welcome text-center" id="welcome-index">
+        <div class="col-12">
+            <h1 class="display-4">
+                WYMCO
+            </h1>
+            <hr>
+        </div>
+    </div>
+
+    <!-- Jumbotron only for small devices -->
+    <div class="homepage-sm">
+        <img src="{% static 'img/carousel/carousel_1.png' %}" alt="">
+    </div>
+
     <!-- Jumbotron -->
     <div class="container-fluid">
         <div class="row jumbotron">
-                <h3 class="mx-auto my-auto">Wymco Consulting offers bookkeeping and IT consulting to builders in Canada and USA.</h3>
+                <h5 class="mx-auto my-auto">Wymco Consulting offers bookkeeping and IT consulting to builders in Canada and USA.</h5>
         </div>
     </div>
 {% endblock %}

@@ -9,9 +9,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-    <!-- Fonts awesome-->
-    <script src="https://kit.fontawesome.com/00569d7162.js" crossorigin="anonymous"></script>
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
@@ -25,29 +22,70 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    {% url 'index' as url %}
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == url %}active{% endif %}" href="{% url 'index' %}">Home</a>
-                    </li>
-                    {% url 'services' as url %}
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == url %}active{% endif %}" href="{% url 'services' %}">Services</a>
-                    </li>
-                    {% url 'about-us' as url %}
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == url %}active{% endif %}" href="{% url 'about-us' %}">About Us</a>
+                        <a class="nav-link" href="{% url 'index' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'blog-home' %}">Blog</a>
+                        <a class="nav-link" href="{% url 'services' %}">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about-us' %}">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'blog-home' %}">Blog</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    {% block content %}
-        <!-- Content goes here -->
-    {% endblock %}
+    <div class="container-fluid padding">
+        <div class="row welcome text-center">
+            <div class="col-12">
+                    <h1 class="display-4">
+                        <a href="{% url 'blog-home' %}">Wymco Consulting</a>
+                    </h1>
+                <hr>
+                <p class="lead">
+                    Frustration-free bookkeeping & technology consulting
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row padding">
+            {% block content %}
+                <!-- Content goes here -->
+            {% endblock %}
+            <div class="col-md-4 float-right ">
+                <div class="sidebar my-4">
+                    <h5 class="card-header">Recent posts</h5>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            {% if blogpost_list_sidebar_news %}
+                                {% for post in blogpost_list_sidebar_news %}
+                                    <li class="list-group-item">
+                                        <a href="{% url 'post-detail' post.slug %}" class="list-group-item-action">{{ post.title }}
+                                            {% if post.created_on %}
+                                            <span class="badge badge-secondary">New</span>
+                                            {% endif %}
+                                        </a>
+                                    </li>
+                                {% endfor%}
+                            {% endif %}
+                            {% for post in blogpost_list_sidebar %}
+                                <li class="list-group-item">
+                                    <a href="{% url 'post-detail' post.slug %}" class="list-group-item-action">{{ post.title }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
 
     <!-- Footer -->
     <footer>

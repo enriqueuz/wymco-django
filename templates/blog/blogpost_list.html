@@ -1,46 +1,33 @@
-{% extends 'base.html' %}
+{% extends 'blog/blog_base.html' %}
 
 {% block head_content %}
     <title>Blog - wymco | consulting</title>
 {% endblock %}
 
 {% block content %}
-
-    <div class="container-fluid padding">
-        <div class="row welcome text-center">
-            <div class="col-12">
-                <h1 class="display-4">
-                    Wymco Consulting
-                </h1>
-                <hr>
-                <p class="lead">
-                    Frustration-free bookkeeping & technology consulting
-                </p>
+    <!-- Blog Entries Column -->
+    <div class="col-md-8 mt-3">
+        {% for post in blogpost_list %}
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2 class="card-title">{{ post.title }}</h2>
+                <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on}} </p>
+                <p class="card-text">{{post.content|slice:":200" }}</p>
+                {% if post.image %}
+                    <img src="{{ post.image.url }}" alt="{{ post.slug }}" class="card-img padding">
+                {% endif %}
+                <a href="{% url 'post-detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
             </div>
         </div>
-    </div>
+        {% endfor %}
 
-    <div class="container">
-        <div class="row padding">
-            <!-- Blog Entries Column -->
-            <div class="col-md-8 mt-3">
-                {% for post in blogpost_list %}
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <h2 class="card-title">{{ post.title }}</h2>
-                        <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on}} </p>
-                        <p class="card-text">{{post.content|slice:":200" }}</p>
-                        {% if post.image %}
-                            <img src="{{ post.image.url }}" alt="{{ post.slug }}" class="card-img padding">
-                        {% endif %}
-                        <a href="{% url 'post-detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-            <!-- Sidebar -->
-            {% block sidebar %}{% include 'blog/blog_sidebar.html' %}{% endblock sidebar%}                
-        </div>
+        {% if is_paginated %}
+                    {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}" class="btn btn-pagination">&laquo; Older posts</a>
+                    {% endif %}
+                    {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-pagination float-right">Newer posts &raquo;</a>
+                    {% endif %}
+        {% endif %}
     </div>
-
-{% endblock %}
+    {% endblock %}

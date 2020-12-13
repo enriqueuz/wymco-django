@@ -3,6 +3,19 @@ html, body {
     width: 100%;
 }
 
+h1 a {
+    color: black;
+}
+
+h1 a:link, h1 a:hover {
+    text-decoration: none;
+    color: #212529;
+}
+
+h3 {
+    font-size: 1.74rem;
+}
+
 .padding {
     padding-bottom: 2rem;
 }
@@ -35,6 +48,11 @@ html, body {
     font-size: 1.1em;
 }
 
+/* Homepage responsive */
+.homepage-sm img {
+    width: 100%;
+}
+
 /* Carousel Styles */
 .carousel-inner img {
     width: 100%;
@@ -56,7 +74,7 @@ html, body {
     left: 50%;
 }
 
-.carousel-caption button {
+.carousel-caption a {
     position: absolute;
     top: 110%;
     right: 45%;
@@ -123,7 +141,7 @@ html, body {
     font-size: 2rem;
 }
 
-/* Blog Post */
+/* Blog */
 
 .card {
     box-shadow: 5px 5px 16px #5454c2;
@@ -131,4 +149,50 @@ html, body {
 
 .sidebar {
     box-shadow: 3px 3px 10px #5454c2;
+}
+
+.btn-pagination {
+    border-color: #337ab7;
+    
+}
+
+.btn-pagination:hover {
+    color: #337ab7;
+
+}
+
+/* Media Queries for responsiveness */
+
+/* Smartphones */
+@media only screen and (max-width: 599px) {
+    .carousel {
+        display: none;
+    }
+  }
+
+  /* For tablets */
+  @media only screen and (max-width: 991px) {
+      .carousel-caption h1 {
+          font-size: 300%;
+      }
+  
+      .carousel-caption a {
+          font-size: .84rem;
+          right: 66%;
+      }
+  }
+
+/* From Tablets on */
+@media only screen and (min-width: 600px) {
+    #welcome-index {
+        display: none;
+    }
+
+    .jumbotron h5 {
+        font-size: 1.17em;
+    }
+
+    .homepage-sm {
+        display: none;
+    }
 }
